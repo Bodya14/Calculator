@@ -1,7 +1,7 @@
 import sys
 import math
 from PyQt5.QtWidgets import (QApplication, QWidget, QVBoxLayout, QPushButton, QLineEdit, 
-                            QGridLayout, QTextEdit, QMainWindow, QAction, QMenuBar, QColorDialog, qApp)
+                            QGridLayout, QTextEdit, QMainWindow, QAction, QMenuBar, QColorDialog)
 from PyQt5.QtGui import QFont, QIcon
 
 class HistoryWindow(QMainWindow):
