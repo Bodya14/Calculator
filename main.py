@@ -7,13 +7,13 @@ from PyQt5.QtGui import QFont, QIcon
 class HistoryWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("История операций")
+        self.setWindowTitle("Історія Операцій")
         self.setGeometry(400, 100, 300, 400)
         self.text_edit = QTextEdit(self)
         self.text_edit.setReadOnly(True)
         self.setCentralWidget(self.text_edit)
         
-        delete_button = QPushButton("Удалить")
+        delete_button = QPushButton("Видалити")
         delete_button.clicked.connect(self.delete_history)
         layout = QVBoxLayout()
         layout.addWidget(self.text_edit)
@@ -125,7 +125,7 @@ class Calculator(QMainWindow):
                 self.history_window.add_history_entry(f"{self.current_input} = {result}")
                 self.current_input = str(result)
             except Exception as e:
-                self.result_display.setText("Ошибка")
+                self.result_display.setText("Помилка")
                 self.current_input = ""
         elif button_text == "C":
             self.current_input = ""
@@ -155,7 +155,7 @@ class Calculator(QMainWindow):
                 self.result_display.setText(str(result))
                 self.current_input = str(result)
             except Exception as e:
-                self.result_display.setText("Ошибка")
+                self.result_display.setText("Помилка")
                 self.current_input = ""
                 self.zero_displayed = True
         elif button_text in "+-*/":
@@ -171,7 +171,7 @@ class Calculator(QMainWindow):
                 self.history_window.add_history_entry(f"{num}² = {result}")
                 self.current_input = str(result)
             except Exception as e:
-                self.result_display.setText("Ошибка")
+                self.result_display.setText("Помилка")
                 self.current_input = ""
         elif button_text in "()":
             self.current_input += button_text
@@ -206,15 +206,15 @@ if __name__ == '__main__':
     menubar = QMenuBar(calc)
     history_menu = menubar.addMenu("Меню")
 
-    show_history_action = QAction("Показать историю", calc)
+    show_history_action = QAction("Показати історію", calc)
     show_history_action.triggered.connect(history_window.show)
     history_menu.addAction(show_history_action)
 
-    change_color_action = QAction("Изменить цвет фона", calc)
+    change_color_action = QAction("Змінити колір фону", calc)
     change_color_action.triggered.connect(change_background_color)
     history_menu.addAction(change_color_action)
 
-    help_action = QAction("Справка", calc)
+    help_action = QAction("Довідка", calc)
     help_action.triggered.connect(open_youtube_link)
     history_menu.addAction(help_action)
 
